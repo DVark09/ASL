@@ -71,8 +71,9 @@ isLoading
 }
 
 split
-{	
-	return (current.missionID == old.missionID + 1 || (current.sceneID == old.sceneID + 1 && current.sceneID != vars.MissionArray[current.missionID] )) && !(current.missionID == 0 && current.sceneID == 1);
+{
+	// We need to also check if the scene number is valid since the addresses sometimes jump to a non existing scene number, not just scene or mission change
+	return (current.missionID == old.missionID + 1 || (current.sceneID == old.sceneID + 1 && current.sceneID != vars.MissionArray[current.missionID])) && !(current.missionID == 0 && current.sceneID == 1);
 }
 
 exit
